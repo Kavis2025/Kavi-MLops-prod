@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: kavi2025/Kavi-MLops-prodapi:latest
+        image: kavi2025/kavi2025api:latest
         ports:
         - containerPort: 8000
 ---
