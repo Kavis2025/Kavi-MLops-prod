@@ -37,7 +37,7 @@ jobs:
     # 5️⃣ Push API image
     - name: Push API image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/kavi2025pi:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/kavi2025api:latest
 
     # 6️⃣ Push UI image
     - name: Push UI image
