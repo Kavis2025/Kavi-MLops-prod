@@ -59,7 +59,7 @@ jobs:
     - name: Setup kubectl
       run: |
         mkdir -p ~/.kube-ci
-        echo "${{ secrets.KUBECONFIG_DATA }}" > ~/.kube-ci/config
+        echo "${{ secrets.KUBECONFIG_DATA }}" | base64 --decode > ~/.kube-ci/config
         chmod 600 ~/.kube-ci/config
       env:
            KUBECONFIG: ~/.kube-ci/config
