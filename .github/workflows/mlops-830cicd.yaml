@@ -58,11 +58,16 @@ jobs:
 
     - name: Setup kubectl
       run: |
-        mkdir -p ~/.kube
-        echo "${{ secrets.KUBECONFIG_DATA }}" > ~/.kube/config
+        mkdir -p ~/.kube-ci
+        echo "${{ secrets.KUBECONFIG_DATA }}" > ~/.kube-ci/config
+        chmod 600 ~/.kube-ci/config
+      env:
+           KUBECONFIG: ~/.kube-ci/config
 
 
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f k8s/api-deployment.yaml
         kubectl apply -f k8s/ui-deployment.yaml
+      env:
+         KUBECONFIG: ~/.kube-ci/config
